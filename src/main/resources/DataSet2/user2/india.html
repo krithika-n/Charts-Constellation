@@ -1,0 +1,38 @@
+<head>
+  <title>user1</title>
+  <meta charset="utf-8">
+
+  <script src="https://cdn.jsdelivr.net/npm/vega@4.3.0/build/vega.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@3.0.0-rc8/build/vega-lite.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@3.20.0/build/vega-embed.js"></script>
+
+  <style media="screen">
+    .vega-actions a {
+      margin-right: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div id="chart"></div>
+  <script>
+  var specs={
+  "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
+  "description": "Top 5 medal winning countries",
+  "data": {
+        "url" : "turkey.csv"
+  },
+  "mark": "line",
+  "encoding": {
+    "x": {"field": "year", "type": "ordinal"},
+    "y": {
+      "field": "athleteNumber",
+      "type": "quantitative",
+      "axis": {"title": "# of Participants"}
+    }
+  },
+  "config": {}
+}
+  vegaEmbed("#chart", specs);
+  </script>
+</body>
+</html>

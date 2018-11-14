@@ -1,0 +1,38 @@
+<head>
+  <title>user2</title>
+  <meta charset="utf-8">
+
+  <script src="https://cdn.jsdelivr.net/npm/vega@4.3.0/build/vega.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@3.0.0-rc8/build/vega-lite.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@3.20.0/build/vega-embed.js"></script>
+
+  <style media="screen">
+    .vega-actions a {
+      margin-right: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Age Distribution of Olympic Athletes</h1>
+  <div id="chart"></div>
+  <script>
+  var specs={
+  "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
+  "data": {"url": "age-dist.csv"},
+  "mark": "bar",
+  "encoding": {
+    "x": {
+      "bin": true,
+      "field": "age",
+      "type": "quantitative"
+    },
+    "y": {
+      "aggregate": "count",
+      "type": "quantitative"
+    }
+  }
+}
+  vegaEmbed("#chart", specs);
+  </script>
+</body>
+</html>

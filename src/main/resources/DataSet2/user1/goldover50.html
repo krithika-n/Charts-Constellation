@@ -1,0 +1,44 @@
+<head>
+  <title>user1</title>
+  <meta charset="utf-8">
+
+  <script src="https://cdn.jsdelivr.net/npm/vega@4.3.0/build/vega.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@3.0.0-rc8/build/vega-lite.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@3.20.0/build/vega-embed.js"></script>
+
+  <style media="screen">
+    .vega-actions a {
+      margin-right: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div id="chart"></div>
+  <script>
+  var specs={
+  "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
+  "description": "Gold Won by Athletes over 50",
+  "data": {
+    "values": [
+        {"sport": "Croquet", "medals": 1}, {"sport": "Art Competitions", "medals":8},
+        {"sport": "Curling", "medals": 2}, {"sport": "Roque", "medals": 1},
+        {"sport": "Sailing", "medals": 12}, {"sport": "Alphinism", "medals": 1},
+        {"sport": "Shooting", "medals": 11}, {"sport": "Archery", "medals": 11},
+        {"sport": "Equestrianism", "medals": 18}
+      ]
+  },
+  "mark": "bar",
+  "encoding": {
+    "x": {"field": "sport", "type": "ordinal"},
+    "y": {
+      "field": "medals",
+      "type": "quantitative",
+      "axis": {"title": "# of Gold Medals"}
+    }
+  },
+  "config": {}
+}
+  vegaEmbed("#chart", specs);
+  </script>
+</body>
+</html>

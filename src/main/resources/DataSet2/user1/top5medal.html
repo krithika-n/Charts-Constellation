@@ -17,16 +17,21 @@
   <script>
   var specs={
   "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
-  "data": {"url": "/home/krithika/Downloads/dataset/user1/womenMedals.csv",
-          "format": {"type": "csv"}
+  "description": "Top 5 medal winning countries",
+  "data": {
+        "values": [
+        {"noc":"USA", "medals":18853}, {"noc":"FRA", "medals":12758},
+        {"noc":"GBR", "medals":12256}, {"noc":"ITA", "medals":10715},
+        {"noc":"GER", "medals":9830}
+      ]
   },
   "mark": "bar",
   "encoding": {
-    "x": {"field": "year", "type": "ordinal"},
-    "y": {
+    "y": {"field": "noc", "type": "ordinal"},
+    "x": {
       "field": "medals",
       "type": "quantitative",
-      "axis": {"title": "# medals"}
+      "axis": {"title": "# of Medals"}
     }
   },
   "config": {}
